@@ -18,18 +18,18 @@ function registrarLog(nomeAluno) {
 }
 
 app.get('/', (req, res) => {
-    res.send('Está funcionando');
+    res.send('está funcionando');
 });
 
 app.post('/logs', (req, res) => {
     const { nome } = req.body;
 
     if (!nome) {
-        return res.status(400).json({ mensagem: "Precisa do nome" });
+        return res.status(400).json({ mensagem: "precisa do nome" });
     }
 
     const id = registrarLog(nome);
-    res.status(201).json({ id, mensagem: "Registrado" });
+    res.status(201).json({ id, mensagem: "registrado" });
 });
 
 app.get('/logs/:id', (req, res) => {
@@ -37,7 +37,7 @@ app.get('/logs/:id', (req, res) => {
 
     fs.readFile('logs.txt', 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).json({ mensagem: "Erro ao ler o arquivo de logs." });
+            return res.status(500).json({ mensagem: "erro no logs." });
         }
 
         const logs = data.split('\n');
@@ -47,11 +47,11 @@ app.get('/logs/:id', (req, res) => {
             return res.status(200).json({ log: logEncontrado });
         }
 
-        res.status(404).json({ mensagem: "Não encontrado." });
+        res.status(404).json({ mensagem: "não foi encontrado." });
     });
 });
 
 const PORT = 8000;
 app.listen(PORT, () => {
-    console.log(`Rodando na porta ${PORT}`);
+    console.log(`rodando na porta ${PORT}`);
 });
