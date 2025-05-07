@@ -1,14 +1,15 @@
 {
   "name": "prova-07.05",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
+    "start": "node script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "logs",
   "dependencies": {
     "express": "^5.1.0",
     "uuid": "^11.1.0"
