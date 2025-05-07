@@ -18,18 +18,18 @@ function registrarLog(nomeAluno) {
 }
 
 app.get('/', (req, res) => {
-    res.send('API de Logs está funcionando!');
+    res.send('Está funcionando');
 });
 
 app.post('/logs', (req, res) => {
     const { nome } = req.body;
 
     if (!nome) {
-        return res.status(400).json({ mensagem: "Nome do aluno é obrigatório." });
+        return res.status(400).json({ mensagem: "Precisa do nome" });
     }
 
     const id = registrarLog(nome);
-    res.status(201).json({ id, mensagem: "Log registrado com sucesso!" });
+    res.status(201).json({ id, mensagem: "Registrado" });
 });
 
 app.get('/logs/:id', (req, res) => {
@@ -47,11 +47,11 @@ app.get('/logs/:id', (req, res) => {
             return res.status(200).json({ log: logEncontrado });
         }
 
-        res.status(404).json({ mensagem: "Log não encontrado." });
+        res.status(404).json({ mensagem: "Não encontrado." });
     });
 });
 
 const PORT = 8000;
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Rodando na porta ${PORT}`);
 });
